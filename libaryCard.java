@@ -9,6 +9,17 @@ class libaryCard{
   private double fine;
   private int cardNumber;
 
+  public libaryCard(String firstName, String lastName, String address, int phoneNumber, int age)
+  {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.address = address;
+      this.phoneNumber = phoneNumber;
+      if(age <= 12)
+          isChild = true;
+      else
+          isChild = false;
+  }
 
   public String getName(){
       return firstName;
@@ -23,19 +34,19 @@ class libaryCard{
     }
 
   public int  getID(){
-      return carNumber;
+      return cardNumber;
     }
 
   public int  getPhoneNumber(){
       return phoneNumber;
     }
 
-  public int  getFine(){
+  public double  getFine(){
       return fine;
     }
 
   public boolean isChild(){
-      this.isChild = false;
+      return isChild;
     }
 
 
