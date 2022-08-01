@@ -482,7 +482,7 @@ public class Library
 
                         //Write to login.csv
                         BufferedWriter fileToWrite = new BufferedWriter(new FileWriter("login.csv", true));
-                        fileToWrite.write("\n"+id +", "+password.getText());
+                        fileToWrite.write("\n"+id +","+password.getText());
                         fileToWrite.close();
 
                         //Write to login.csv
