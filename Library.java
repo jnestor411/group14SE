@@ -480,6 +480,10 @@ public class Library
                         String addressString = address.getText();
                         int userAge = Integer.parseInt(age.getText());
 
+                        //add new user to userIDList and passwordList
+                        userIDList.add(currentUserID);
+                        passwordList.add(passWd);
+
                         //Write to login.csv
                         BufferedWriter fileToWrite = new BufferedWriter(new FileWriter("login.csv", true));
                         fileToWrite.write("\n"+id +","+password.getText());
