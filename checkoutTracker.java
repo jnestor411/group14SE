@@ -146,12 +146,14 @@ public class checkoutTracker {
 
                 Date currentDate = new Date(System.currentTimeMillis());
                 checkoutLog.get(userID).get(itemToRenewIndex).setDateCheckout(currentDate);
-
+                checkoutLog.get(userID).get(itemToRenewIndex).setRenewStatus(true);
                 //Rewrite the data in checkoutLog.csv
                 String writeToFileString = "";
                 for (int id : checkoutLog.keySet()) {
                     writeToFileString += "" + id;
-                    for (CheckOutAble itemToWrite : checkoutLog.get(id)) {
+                    for (CheckOutAble itemToWrite : checkoutLog.get(id))
+                    {
+                        writeToFileString += "," + itemToWrite.getRenewStats();
                         writeToFileString += "," + writeFormat.format(outPutFormat.parse(itemToWrite.getDateCheckout().toString())) + ",";//date
                         writeToFileString += itemToWrite.getID();//item id
                     }
@@ -163,7 +165,7 @@ public class checkoutTracker {
                 fileToWrite.write(writeToFileString);
                 fileToWrite.close();
             } catch (Exception e) {
-                System.out.println("Checoutlog write: \n" +e);
+                System.out.println("Checkoutlog write: \n" +e);
 
             }
         }
@@ -350,7 +352,7 @@ public class checkoutTracker {
             BufferedWriter fileToWrite = new BufferedWriter(new FileWriter("checkoutLog.csv", false));
             fileToWrite.write(writeToFileString);
             fileToWrite.close();
-            System.out.println(writeToFileString);
+            //System.out.println(writeToFileString);
 
         }
         catch(Exception e)
