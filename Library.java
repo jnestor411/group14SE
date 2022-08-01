@@ -835,7 +835,7 @@ public class Library
                         int successValue = system.checkOutItem(Integer.parseInt(itemID), currentUserID);
                         if(successValue == 1)
                         {
-                            JOptionPane.showMessageDialog(checkoutFrame, "There's an outstanding request for the item");
+                            JOptionPane.showMessageDialog(checkoutFrame, "Critical Error");
                         }
                         else if(successValue == 2)
                         {
